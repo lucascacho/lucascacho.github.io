@@ -17,4 +17,9 @@ Quiero que esta pagina sea una carta de presentacion mia. Que sirva para dar un 
 Cualquier comentario/sugerencia es bienvenido!
 {: .notice}
 
+
+
+
+
+
 <kbd>Ctrl</kbd>+<kbd>D</kbd>
