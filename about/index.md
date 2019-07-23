@@ -1,9 +1,9 @@
 ---
 layout: page
-title: About the Theme
-tags: [about, Jekyll, theme, moon]
+title: About Cacho
+tags: [about, cacho, me, fun facts]
 date: 2019-07-23
-feature: /assets/cacho-pro.jpg
+feature: http://i.imgur.com/Ds6S7lJ.png
 comments: false
 ---
     
