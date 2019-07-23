@@ -1,8 +1,9 @@
- ---
+---
 layout: page
 title: About the Theme
 tags: [about, Jekyll, theme, moon]
 date: 2019-07-23
+feature: /assets/cacho-pro.jpg
 comments: false
 ---
     
