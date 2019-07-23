@@ -6,33 +6,17 @@ date: 2019-07-23
 feature: http://i.imgur.com/Ds6S7lJ.png
 comments: false
 ---
-    
-<center><a href="http://taylantatli.github.io/Moon"><b>Moon</b></a> is a minimal, one column jekyll theme.</center>
+   
+Hey there. My name is Lucas Cacchione, although people call me *Cacho*. I'm a 25 y/o engineering student based in Buenos Aires, Argentina. I'm currently working part-time as a funtional assistant at gA, assigned to logistics client Axionlog, where I specialize in JD Edwards systems support and development for the whole region. I also do side-projects in my free time that involve building computers and programming.
 
-## Features
-* Minimal, you can focus on your content
-* Responsive
-* Disqus integration
-* Syntax highlighting
-* Optional post image
-* Social icons
-* Page for sharing projects
-* Optional background image
-* Simple navigation menu
-* MathJax support
 
-## Preview
+## Pros
+* Healthy guy, rarely get sick
+* Above-average *mate* preparing habilities
+* Great interpersonal skills
+* Has Pi memorized to 150 digits (not consecutive)
 
-{% capture images %}
-    https://cloud.githubusercontent.com/assets/754514/14509720/61c61058-01d6-11e6-93ab-0918515ecd56.png
-    https://cloud.githubusercontent.com/assets/754514/14509716/61ac6c8e-01d6-11e6-879f-8308883de790.png
-{% endcapture %}
-{% include gallery images=images caption="Screenshots of Moon Theme" cols=2 %}
-
-See a [live version of Moon](http://taylantatli.github.io/Moon) hosted on GitHub.
-
-## Getting Started
-
-To learn how to install and use this theme check out the [Setup Guide](http://taylantatli.me/Moon/moon-theme/) for more information.
-      
-[Install Moon](https://github.com/TaylanTatli/Moon){: .btn}
+## Cons
+* There's only one of me
+* Isn't very good at redacting filler text for an about-me page
+* Lorem ipsum dolor sit amet
