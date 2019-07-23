@@ -4,6 +4,7 @@ title: "Webite is up!"
 date: 2019-07-23
 excerpt: "Notes on the new site."
 tags: [first post, hello world, website]
+feature: http://i.imgur.com/Ds6S7lJ.png
 comments: false
 ---
 
@@ -16,4 +17,4 @@ Quiero que esta pagina sea una carta de presentacion mia. Que sirva para dar un 
 Cualquier comentario/sugerencia es bienvenido!
 {: .notice}
 
-<kbd>up</kbd><kbd>up</kbd><kbd>down</kbd><kbd>down</kbd><kbd>left</kbd><kbd>right</kbd><kbd>left</kbd><kbd>right</kbd><kbd>B</kbd><kbd>A</kbd>
+<kbd>Ctrl</kbd>+<kbd>D</kbd>
