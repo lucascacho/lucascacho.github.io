@@ -10,11 +10,11 @@ comments: false
 	<img src="/assets/img/cacho-casual.jpg">
 </figure>
 
-Hey there. My name is Lucas Cacchione, although people call me *Cacho*. I'm a 25 y/o engineering student based in Buenos Aires, Argentina. I'm currently working part-time as a funtional assistant at <a href="http://grupoassa.com">gA</a>, assigned to logistics client Axionlog, where I specialize in JD Edwards systems support and development for the whole region. I also do side-projects in my free time that involve building computers and programming.
+Hey there. My name is Lucas Cacchione, although people call me *Cacho*. I'm a 25 y/o engineering student based in Buenos Aires, Argentina. I'm currently working part-time as a funtional assistant at <a href="http://grupoassa.com">gA</a>, assigned to logistics client Axionlog, where I specialize in JD Edwards systems support and development for the whole region. I also do side-projects in my free time that revolve around building computers and programming.
 
 
 ### Strengths
-* Above-average *mate* preparing habilities
+* Above-average *mate* preparing abilities
 * Healthy guy. Never gets sick. Not since *the incident*.
 * Pretty good interpersonal skills, can deliver jokes on-demand and under pressure
 * Has Pi memorized to 150 digits (not consecutive)
