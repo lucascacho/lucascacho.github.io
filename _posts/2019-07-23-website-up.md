@@ -12,14 +12,9 @@ La realidad es que no tengo mucho para decir ahora mismo. Este post sirve para t
 
 ## Objetivos para la pagina
 
-Quiero que esta pagina sea una carta de presentacion mia. Que sirva para dar un pantallazo general de quien soy y como contactarme. Tengo algunos proyectos en mi cabeza que creo que podrian ir bien con el site. El tiempo dira si se hacen o no.
+El fin de este site es exclusivamente el de facilitar el contacto conmigo. Tengo algunos proyectos en mi cabeza que creo que podrian ir bien aca. El tiempo dira si se hacen o no.
 
-Cualquier comentario/sugerencia es bienvenido!
+Cualquier comentario/sugerencia es bienvenido
 {: .notice}
 
-
-
-
-
-
-<kbd>Ctrl</kbd>+<kbd>D</kbd>
+Cacho.
