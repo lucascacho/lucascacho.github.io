@@ -12,7 +12,7 @@ La realidad es que no tengo mucho para decir ahora mismo. Este post sirve para t
 
 ## Objetivos para la pagina
 
-El fin de este site es exclusivamente el de facilitar el contacto conmigo. Tengo algunos proyectos en mi cabeza que creo que podrian ir bien aca. El tiempo dira si se hacen o no.
+Este site es simplemente una plataforma para exopner mis ideas y facilitar el contacto conmigo. Tengo algunos proyectos en mi cabeza que eventualmente voy a implementar.
 
 Cualquier comentario/sugerencia es bienvenido
 {: .notice}
