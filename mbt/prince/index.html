@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: Automatización de Lavandería Industrial en LATAM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (max-width: 768px) {
+            .chart-container {
+                height: 300px;
+            }
+        }
+        .kpi-value {
+            font-weight: 900;
+            color: #ffa600;
+        }
+        .flow-arrow {
+            font-size: 2rem;
+            color: #7a5195;
+            line-height: 1;
+        }
+        .force-high { border-left: 5px solid #bc5090; }
+        .force-medium { border-left: 5px solid #ff764a; }
+        .force-low { border-left: 5px solid #ffa600; }
+    </style>
+</head>
+<body class="bg-[#003f5c] text-gray-200">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-6xl font-black text-white mb-2">La Revolución Silenciosa</h1>
+            <h2 class="text-xl md:text-2xl font-semibold text-[#ffa600]">Automatización Inteligente en la Lavandería Industrial de LATAM</h2>
+        </header>
+
+        <section id="intro" class="mb-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="bg-white/10 p-6 rounded-xl shadow-lg">
+                    <p class="text-lg mb-2">Pérdidas de Inventario</p>
+                    <p class="text-5xl kpi-value">↓90%</p>
+                    <p class="mt-2 text-gray-400">Reducción potencial con RFID, de 25% a menos del 3%.</p>
+                </div>
+                <div class="bg-white/10 p-6 rounded-xl shadow-lg">
+                    <p class="text-lg mb-2">Mercado Proyectado (2034)</p>
+                    <p class="text-5xl kpi-value">$460M</p>
+                    <p class="mt-2 text-gray-400">TCAC estimada del 7% para el nicho de automatización.</p>
+                </div>
+                <div class="bg-white/10 p-6 rounded-xl shadow-lg">
+                    <p class="text-lg mb-2">Productividad Laboral</p>
+                    <p class="text-5xl kpi-value">↑35%</p>
+                    <p class="mt-2 text-gray-400">Aumento por eliminación de cuellos de botella manuales.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="problema-solucion" class="mb-12 bg-white/5 p-8 rounded-xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="text-3xl font-bold mb-4 text-white">El Punto de Inflexión Tecnológico</h3>
+                    <p class="text-gray-300 mb-4">La lavandería industrial, un sector tradicionalmente intensivo en mano de obra, enfrenta presiones por costos crecientes, errores humanos y la demanda de mayor higiene. La dependencia de procesos manuales genera ineficiencias y altas pérdidas de inventario.</p>
+                    <p class="text-gray-300">La convergencia de Visión por Computadora, Robótica e IoT no es una mejora incremental; es una transformación fundamental que convierte a las lavanderías en socios estratégicos de alta eficiencia.</p>
+                </div>
+                <div class="grid grid-cols-3 gap-4 text-center">
+                    <div class="bg-white/10 p-4 rounded-lg">
+                        <p class="text-4xl">👁️</p>
+                        <p class="font-semibold mt-2">Visión por Computadora</p>
+                        <p class="text-sm text-gray-400">Clasifica textiles y detecta defectos.</p>
+                    </div>
+                    <div class="bg-white/10 p-4 rounded-lg">
+                        <p class="text-4xl">🤖</p>
+                        <p class="font-semibold mt-2">Robótica</p>
+                        <p class="text-sm text-gray-400">Automatiza tareas físicas como carga y plegado.</p>
+                    </div>
+                    <div class="bg-white/10 p-4 rounded-lg">
+                        <p class="text-4xl">🏷️</p>
+                        <p class="font-semibold mt-2">RFID & IoT</p>
+                        <p class="text-sm text-gray-400">Permiten trazabilidad total y optimización.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mercado" class="mb-12">
+            <h3 class="text-3xl font-bold text-center mb-8 text-white">Una Oportunidad de Mercado en Plena Expansión</h3>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white/5 p-6 rounded-xl shadow-lg">
+                    <h4 class="text-xl font-bold text-center mb-4">Proyección del Mercado de Automatización (LATAM, M USD)</h4>
+                    <p class="text-center text-gray-400 mb-4">El nicho de automatización de lavanderías crecerá a una TCAC estimada del 7.0%, superando al mercado general de equipamiento y alineándose con la automatización industrial.</p>
+                    <div class="chart-container">
+                        <canvas id="marketGrowthChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white/5 p-6 rounded-xl shadow-lg">
+                    <h4 class="text-xl font-bold text-center mb-4">Curva de Adopción Tecnológica (Modelo de Rogers)</h4>
+                    <p class="text-center text-gray-400 mb-4">La tecnología está "cruzando el abismo", pasando de los pioneros a la mayoría del mercado. Este es el momento óptimo para la inversión y capturar el máximo crecimiento.</p>
+                     <div class="chart-container">
+                        <canvas id="adoptionCurveChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cadena-valor" class="mb-12">
+            <h3 class="text-3xl font-bold text-center mb-8 text-white">La Transformación de la Cadena de Valor</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="text-center">
+                    <h4 class="text-2xl font-bold mb-4 text-gray-300">Proceso Tradicional (Lineal y Manual)</h4>
+                    <div class="flex flex-col items-center space-y-2">
+                        <div class="bg-white/10 p-3 rounded-lg w-full max-w-sm">Recepción</div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="bg-white/10 p-3 rounded-lg w-full max-w-sm">Clasificación Manual (Error Humano)</div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="bg-white/10 p-3 rounded-lg w-full max-w-sm">Lavado/Secado</div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="bg-white/10 p-3 rounded-lg w-full max-w-sm">Acabado y Plegado Manual</div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="bg-white/10 p-3 rounded-lg w-full max-w-sm">Despacho (Sin Trazabilidad)</div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <h4 class="text-2xl font-bold mb-4 text-[#ffa600]">Proceso Automatizado (Inteligente y Cíclico)</h4>
+                     <div class="flex flex-col items-center space-y-2">
+                        <div class="bg-[#7a5195]/30 p-3 rounded-lg w-full max-w-sm border-l-4 border-[#7a5195]">Ingesta Digital (RFID/CV)</div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="bg-[#7a5195]/30 p-3 rounded-lg w-full max-w-sm border-l-4 border-[#7a5195]">Procesamiento Optimizado (IoT)</div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="bg-[#7a5195]/30 p-3 rounded-lg w-full max-w-sm border-l-4 border-[#7a5195]">Control de Calidad (CV/Robótica)</div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="bg-[#7a5195]/30 p-3 rounded-lg w-full max-w-sm border-l-4 border-[#7a5195]">Logística Inteligente (RPA)</div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="bg-[#ffa600]/30 p-3 rounded-lg w-full max-w-sm border-l-4 border-[#ffa600]">📈 Datos como Servicio (Nuevo Valor)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="competencia" class="mb-12">
+            <h3 class="text-3xl font-bold text-center mb-8 text-white">Ecosistema Competitivo</h3>
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+                <div class="lg:col-span-3 bg-white/5 p-6 rounded-xl shadow-lg">
+                    <h4 class="text-xl font-bold text-center mb-4">Titanes Globales y su Foco Estratégico</h4>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead>
+                                <tr class="border-b border-white/20">
+                                    <th class="p-2">Compañía</th>
+                                    <th class="p-2">Estrategia</th>
+                                    <th class="p-2">Presencia en LATAM</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-white/10">
+                                    <td class="p-2 font-bold">Kannegiesser 🇩🇪</td>
+                                    <td class="p-2">Ingeniería de procesos, robustez y automatización de extremo a extremo.</td>
+                                    <td class="p-2">Directa (Brasil, Chile, Costa Rica)</td>
+                                </tr>
+                                <tr class="border-b border-white/10">
+                                    <td class="p-2 font-bold">JENSEN-GROUP 🇨🇭</td>
+                                    <td class="p-2">Liderazgo en innovación, digitalización (IA/IoT) y sostenibilidad.</td>
+                                    <td class="p-2">Vía hub en EE.UU. y distribuidores.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 font-bold">Girbau 🇪🇸</td>
+                                    <td class="p-2">Soluciones sostenibles, proximidad al cliente y adaptabilidad local.</td>
+                                    <td class="p-2">Fuerte y directa (Argentina, Brasil, etc.)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="lg:col-span-2 bg-white/5 p-6 rounded-xl shadow-lg">
+                    <h4 class="text-xl font-bold text-center mb-4">Análisis de Atractivo del Mercado (Porter)</h4>
+                    <div class="space-y-3">
+                        <div class="bg-white/10 p-3 rounded-lg force-high">
+                            <h5 class="font-bold">Rivalidad entre competidores: Alta</h5>
+                            <p class="text-sm text-gray-400">Intensa competencia entre titanes globales y actores regionales.</p>
+                        </div>
+                        <div class="bg-white/10 p-3 rounded-lg force-low">
+                            <h5 class="font-bold">Amenaza de nuevos entrantes: Baja</h5>
+                            <p class="text-sm text-gray-400">Altas barreras de capital (CAPEX), escala y lealtad de marca.</p>
+                        </div>
+                        <div class="bg-white/10 p-3 rounded-lg force-medium">
+                            <h5 class="font-bold">Amenaza de sustitutos: Media</h5>
+                            <p class="text-sm text-gray-400">Principalmente la operación interna, pero la tendencia es a la externalización.</p>
+                        </div>
+                         <div class="bg-white/10 p-3 rounded-lg force-high">
+                            <h5 class="font-bold">Poder de los compradores: Alto</h5>
+                            <p class="text-sm text-gray-400">Grandes clientes (hoteles, hospitales) negocian por volumen.</p>
+                        </div>
+                         <div class="bg-white/10 p-3 rounded-lg force-medium">
+                            <h5 class="font-bold">Poder de los proveedores: Medio-Alto</h5>
+                            <p class="text-sm text-gray-400">Pocos proveedores de tecnología altamente especializados.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="impacto" class="mb-12">
+             <h3 class="text-3xl font-bold text-center mb-8 text-white">Impacto Estratégico y Nuevas Oportunidades</h3>
+             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white/5 p-6 rounded-xl shadow-lg">
+                    <h4 class="text-xl font-bold mb-3 flex items-center"><span class="text-3xl mr-3">💧</span> Reducción de Costos</h4>
+                    <ul class="list-disc list-inside space-y-2 text-gray-300">
+                        <li>Consumo de agua hasta un 80% menor.</li>
+                        <li>Optimización del uso de energía y químicos.</li>
+                        <li>Reducción de costos laborales directos.</li>
+                    </ul>
+                </div>
+                 <div class="bg-white/5 p-6 rounded-xl shadow-lg">
+                    <h4 class="text-xl font-bold mb-3 flex items-center"><span class="text-3xl mr-3">📈 Nuevos Servicios</h4>
+                    <ul class="list-disc list-inside space-y-2 text-gray-300">
+                        <li>Alquiler y gestión de textiles como servicio.</li>
+                        <li>Datos como Servicio (DaaS) con paneles para clientes.</li>
+                        <li>Consultoría en sostenibilidad y gestión de activos.</li>
+                    </ul>
+                </div>
+                 <div class="bg-white/5 p-6 rounded-xl shadow-lg">
+                    <h4 class="text-xl font-bold mb-3 flex items-center"><span class="text-3xl mr-3">🏥 Sectores Clave</h4>
+                    <ul class="list-disc list-inside space-y-2 text-gray-300">
+                        <li><span class="font-bold">Salud:</span> Higiene, trazabilidad y cumplimiento normativo.</li>
+                        <li><span class="font-bold">Hotelería:</span> Calidad impecable y experiencia del huésped.</li>
+                        <li><span class="font-bold">Industrial:</span> Gestión logística de uniformes y EPP.</li>
+                    </ul>
+                </div>
+             </div>
+        </section>
+
+        <section id="argentina" class="bg-white/5 p-8 rounded-xl">
+             <h3 class="text-3xl font-bold text-center mb-8 text-white">Foco Especial: El Mercado Argentino</h3>
+             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                <div>
+                     <h4 class="text-2xl font-bold mb-4 text-white">Un Dilema de "Empuje y Tracción"</h4>
+                     <p class="text-gray-300">El mercado argentino presenta un caso único donde los fuertes incentivos para automatizar chocan con barreras significativas, creando un entorno de inversión complejo pero potencialmente muy rentable si se navega correctamente.</p>
+                </div>
+                <div class="space-y-4">
+                     <div class="bg-white/10 p-4 rounded-lg">
+                        <h5 class="font-bold text-lg text-green-400 flex items-center"><span class="text-3xl mr-2">✔️</span> Impulsores Clave (Empuje)</h5>
+                        <p class="text-gray-300 mt-1">Los altos costos laborales y la compleja normativa crean un fuerte incentivo económico para reemplazar tareas manuales y mitigar riesgos.</p>
+                     </div>
+                      <div class="bg-white/10 p-4 rounded-lg">
+                        <h5 class="font-bold text-lg text-red-400 flex items-center"><span class="text-3xl mr-2">❌</span> Barreras Principales (Tracción)</h5>
+                        <p class="text-gray-300 mt-1">Las regulaciones de importación y los aranceles aumentan el CAPEX, mientras que la infraestructura de conectividad y la escasez de talento técnico presentan desafíos operativos.</p>
+                     </div>
+                </div>
+             </div>
+        </section>
+
+    </div>
+
+    <footer class="text-center p-6 mt-8 border-t border-white/10">
+        <p class="text-gray-400">Análisis estratégico basado en el informe "La Revolución Silenciosa".</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const CHART_COLORS = {
+                color1: '#7a5195',
+                color2: '#bc5090',
+                color3: '#ef5675',
+                color4: '#ff764a',
+                color5: '#ffa600',
+            };
+            const GRID_COLOR = 'rgba(255, 255, 255, 0.1)';
+            const FONT_COLOR = 'rgba(255, 255, 255, 0.8)';
+
+            function wrapLabels(label, maxWidth) {
+                const words = label.split(' ');
+                let lines = [];
+                let currentLine = words[0];
+
+                for (let i = 1; i < words.length; i++) {
+                    if ((currentLine + ' ' + words[i]).length > maxWidth) {
+                        lines.push(currentLine);
+                        currentLine = words[i];
+                    } else {
+                        currentLine += ' ' + words[i];
+                    }
+                }
+                lines.push(currentLine);
+                return lines;
+            }
+            
+            const tooltipTitleCallback = (tooltipItems) => {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) {
+                    return label.join(' ');
+                } else {
+                    return label;
+                }
+            };
+            
+            const defaultOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: FONT_COLOR,
+                            font: {
+                                size: 12
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        ticks: { color: FONT_COLOR },
+                        grid: { color: GRID_COLOR }
+                    },
+                    x: {
+                        ticks: { color: FONT_COLOR },
+                        grid: { color: GRID_COLOR }
+                    }
+                }
+            };
+
+            const createMarketGrowthChart = () => {
+                const ctx = document.getElementById('marketGrowthChart');
+                if (!ctx) return;
+
+                const data = {
+                    labels: ['2025', '2026', '2027', '2028', '2029', '2030', '2031', '2032', '2033', '2034'],
+                    datasets: [{
+                        label: 'Tamaño de Mercado (M USD)',
+                        data: [250, 268, 286, 306, 328, 351, 375, 402, 430, 460],
+                        borderColor: CHART_COLORS.color5,
+                        backgroundColor: CHART_COLORS.color5 + '33',
+                        fill: true,
+                        tension: 0.4
+                    }]
+                };
+
+                const options = { ...defaultOptions };
+                options.plugins.legend.display = false;
+                
+                new Chart(ctx, {
+                    type: 'line',
+                    data: data,
+                    options: options
+                });
+            };
+
+            const createAdoptionCurveChart = () => {
+                const ctx = document.getElementById('adoptionCurveChart');
+                if (!ctx) return;
+
+                const data = {
+                    labels: [
+                        wrapLabels('Innovadores (2.5%)', 16), 
+                        wrapLabels('Primeros Adoptantes (13.5%)', 16), 
+                        wrapLabels('Mayoría Temprana (34%)', 16), 
+                        wrapLabels('Mayoría Tardía (34%)', 16), 
+                        wrapLabels('Rezagados (16%)', 16)
+                    ],
+                    datasets: [{
+                        label: 'Segmento de Mercado',
+                        data: [2.5, 13.5, 34, 34, 16],
+                        backgroundColor: [
+                            CHART_COLORS.color1,
+                            CHART_COLORS.color2,
+                            CHART_COLORS.color3,
+                            CHART_COLORS.color4,
+                            CHART_COLORS.color5
+                        ],
+                        borderColor: '#003f5c',
+                        borderWidth: 4,
+                        hoverOffset: 4
+                    }]
+                };
+                
+                const options = { ...defaultOptions };
+                options.plugins.legend.position = 'bottom';
+                options.scales = {};
+
+                new Chart(ctx, {
+                    type: 'doughnut',
+                    data: data,
+                    options: options
+                });
+            };
+            
+            createMarketGrowthChart();
+            createAdoptionCurveChart();
+        });
+    </script>
+</body>
+</html>
