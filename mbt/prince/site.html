@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis Interactivo: Automatización de Lavandería Industrial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #F8F7F4;
+            color: #3D405B;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .nav-link {
+            transition: color 0.3s ease, border-bottom-color 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #E07A5F;
+            border-bottom-color: #E07A5F;
+        }
+        .kpi-value {
+            font-weight: 900;
+            color: #E07A5F;
+        }
+        .flow-arrow {
+            font-size: 2rem;
+            color: #81B29A;
+            line-height: 1;
+            font-weight: 900;
+        }
+        .force-high { border-left: 5px solid #c0392b; }
+        .force-medium { border-left: 5px solid #f39c12; }
+        .force-low { border-left: 5px solid #27ae60; }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Chosen Palette: Strategic Calm -->
+    <!-- Application Structure Plan: The application is structured as a narrative journey to guide user understanding, moving from high-level impact to specific details. It starts with a "hook" (KPI Dashboard) to establish importance. It then flows to "The Opportunity" (market data), "The Transformation" (process visualization), "The Ecosystem" (competitive analysis), and concludes with "The Strategy" (recommendations). This thematic, top-down structure is more intuitive and engaging for a web user than the report's formal academic layout, facilitating exploration and synthesis of key strategic insights. -->
+    <!-- Visualization & Content Choices: 
+        - Report Info: Market Projection Data (Table 1) -> Goal: Show Change -> Viz: Line Chart (Chart.js) -> Interaction: Hover tooltips -> Justification: Ideal for visualizing trends over time.
+        - Report Info: Rogers' Adoption Curve -> Goal: Organize/Inform -> Viz: Donut Chart (Chart.js) -> Interaction: Hover tooltips -> Justification: Excellent for showing composition and highlighting the current market phase.
+        - Report Info: Value Chain Comparison -> Goal: Compare/Organize -> Viz: Side-by-side HTML/CSS columns -> Interaction: Static -> Justification: Clear visual comparison of before/after without complex libraries.
+        - Report Info: Porter's Five Forces -> Goal: Organize -> Viz: Styled HTML cards with colored borders -> Interaction: Static -> Justification: More visually appealing and scannable than a dense table; colors denote threat level.
+        - Report Info: Competitor Analysis (Table 2) -> Goal: Compare -> Viz: Responsive HTML table -> Interaction: Static -> Justification: Direct and effective for structured comparative data.
+        - Report Info: Key Metrics (Productivity, Loss Reduction) -> Goal: Inform -> Viz: Large text KPI cards -> Interaction: Static -> Justification: High-impact method to present critical stats immediately.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <nav id="navbar" class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-3">
+                <div class="text-xl font-bold text-[#3D405B]">Análisis Estratégico</div>
+                <div class="hidden md:flex space-x-6 text-sm font-bold">
+                    <a href="#overview" class="nav-link">Visión General</a>
+                    <a href="#market" class="nav-link">Mercado</a>
+                    <a href="#process" class="nav-link">Proceso</a>
+                    <a href="#competition" class="nav-link">Competencia</a>
+                    <a href="#strategy" class="nav-link">Estrategia</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto p-4 md:p-8">
+        
+        <header class="text-center my-12 md:my-16">
+            <h1 class="text-4xl md:text-5xl font-black text-[#3D405B] mb-3">La Revolución Silenciosa de la Lavandería</h1>
+            <p class="text-lg md:text-xl max-w-3xl mx-auto text-gray-600">Un análisis interactivo sobre cómo la automatización inteligente está transformando un sector clave en América Latina.</p>
+        </header>
+
+        <section id="overview" class="mb-16 scroll-mt-20">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold">Visión General del Impacto</h2>
+                <p class="text-md text-gray-500 max-w-2xl mx-auto mt-2">La convergencia de Visión por Computadora, Robótica e IoT no es una mejora incremental; es una transformación fundamental que genera beneficios cuantificables y redefine el valor en la industria.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-[#E07A5F]">
+                    <p class="text-lg mb-2 font-bold">Reducción de Pérdidas</p>
+                    <p class="text-5xl kpi-value">↓90%</p>
+                    <p class="mt-2 text-gray-500">La tecnología RFID puede disminuir las pérdidas de inventario del 25% a menos del 3%.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-[#81B29A]">
+                    <p class="text-lg mb-2 font-bold">Mercado Proyectado (2034)</p>
+                    <p class="text-5xl kpi-value">$460M</p>
+                    <p class="mt-2 text-gray-500">TCAC estimada del 7% para el nicho de automatización en LATAM.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-[#F2CC8F]">
+                    <p class="text-lg mb-2 font-bold">Aumento de Productividad</p>
+                    <p class="text-5xl kpi-value">↑35%</p>
+                    <p class="mt-2 text-gray-500">Al eliminar cuellos de botella y optimizar flujos de trabajo manuales.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="market" class="mb-16 scroll-mt-20">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold">La Oportunidad de Mercado</h2>
+                <p class="text-md text-gray-500 max-w-2xl mx-auto mt-2">El mercado de automatización de lavanderías se alinea con el crecimiento de la automatización industrial, presentando una oportunidad de inversión en una fase clave de adopción.</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-bold text-center mb-4">Proyección de Crecimiento (LATAM, M USD)</h3>
+                    <div class="chart-container">
+                        <canvas id="marketGrowthChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-bold text-center mb-4">Curva de Adopción Tecnológica (Rogers)</h3>
+                    <div class="chart-container">
+                        <canvas id="adoptionCurveChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="process" class="mb-16 scroll-mt-20">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold">La Transformación del Proceso</h2>
+                <p class="text-md text-gray-500 max-w-2xl mx-auto mt-2">La automatización rediseña la cadena de valor, pasando de un flujo lineal y manual a un ciclo inteligente, optimizado y basado en datos.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="text-center bg-white p-6 rounded-xl shadow-lg">
+                    <h4 class="text-2xl font-bold mb-6 text-gray-700">Proceso Tradicional</h4>
+                    <div class="flex flex-col items-center space-y-2">
+                        <div class="bg-gray-100 p-3 rounded-lg w-full max-w-sm">Recepción</div>
+                        <div class="flow-arrow text-gray-400">↓</div>
+                        <div class="bg-gray-100 p-3 rounded-lg w-full max-w-sm">Clasificación Manual (Error Humano)</div>
+                        <div class="flow-arrow text-gray-400">↓</div>
+                        <div class="bg-gray-100 p-3 rounded-lg w-full max-w-sm">Lavado/Secado</div>
+                        <div class="flow-arrow text-gray-400">↓</div>
+                        <div class="bg-gray-100 p-3 rounded-lg w-full max-w-sm">Acabado y Plegado Manual</div>
+                        <div class="flow-arrow text-gray-400">↓</div>
+                        <div class="bg-gray-100 p-3 rounded-lg w-full max-w-sm">Despacho (Sin Trazabilidad)</div>
+                    </div>
+                </div>
+                <div class="text-center bg-white p-6 rounded-xl shadow-lg border-2 border-[#81B29A]">
+                    <h4 class="text-2xl font-bold mb-6 text-[#81B29A]">Proceso Automatizado</h4>
+                     <div class="flex flex-col items-center space-y-2">
+                        <div class="bg-[#81B29A]/10 p-3 rounded-lg w-full max-w-sm">Ingesta Digital (RFID/CV)</div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="bg-[#81B29A]/10 p-3 rounded-lg w-full max-w-sm">Procesamiento Optimizado (IoT)</div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="bg-[#81B29A]/10 p-3 rounded-lg w-full max-w-sm">Control de Calidad (CV/Robótica)</div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="bg-[#81B29A]/10 p-3 rounded-lg w-full max-w-sm">Logística Inteligente (RPA)</div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="bg-[#F2CC8F]/30 p-3 rounded-lg w-full max-w-sm font-bold">📈 Datos como Servicio (Nuevo Valor)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="competition" class="mb-16 scroll-mt-20">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold">Ecosistema Competitivo</h2>
+                <p class="text-md text-gray-500 max-w-2xl mx-auto mt-2">El mercado está liderado por titanes europeos, pero la dinámica competitiva regional presenta un panorama complejo y lleno de matices.</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+                <div class="lg:col-span-3 bg-white p-6 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-bold text-center mb-4">Titanes Globales y su Foco Estratégico</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-sm">
+                            <thead class="bg-gray-50">
+                                <tr class="border-b">
+                                    <th class="p-3 font-bold">Compañía</th>
+                                    <th class="p-3 font-bold">Estrategia</th>
+                                    <th class="p-3 font-bold">Presencia en LATAM</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y">
+                                <tr class="hover:bg-gray-50">
+                                    <td class="p-3 font-bold">Kannegiesser 🇩🇪</td>
+                                    <td class="p-3">Ingeniería de procesos y automatización de extremo a extremo.</td>
+                                    <td class="p-3">Directa (Brasil, Chile, Costa Rica)</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="p-3 font-bold">JENSEN-GROUP 🇨🇭</td>
+                                    <td class="p-3">Liderazgo en innovación, digitalización (IA/IoT) y sostenibilidad.</td>
+                                    <td class="p-3">Vía hub en EE.UU. y distribuidores.</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="p-3 font-bold">Girbau 🇪🇸</td>
+                                    <td class="p-3">Soluciones sostenibles, proximidad y adaptabilidad local.</td>
+                                    <td class="p-3">Fuerte y directa (Argentina, Brasil, etc.)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="lg:col-span-2 bg-white p-6 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-bold text-center mb-4">Análisis del Atractivo (Porter)</h3>
+                    <div class="space-y-3">
+                        <div class="p-3 rounded-lg force-high">
+                            <h4 class="font-bold text-sm">Rivalidad: Alta</h4>
+                        </div>
+                        <div class="p-3 rounded-lg force-low">
+                            <h4 class="font-bold text-sm">Nuevos Entrantes: Baja</h4>
+                        </div>
+                        <div class="p-3 rounded-lg force-medium">
+                            <h4 class="font-bold text-sm">Sustitutos: Media</h4>
+                        </div>
+                         <div class="p-3 rounded-lg force-high">
+                            <h4 class="font-bold text-sm">Poder Compradores: Alto</h4>
+                        </div>
+                         <div class="p-3 rounded-lg force-medium">
+                            <h4 class="font-bold text-sm">Poder Proveedores: Medio-Alto</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="strategy" class="mb-16 scroll-mt-20">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold">Recomendaciones Estratégicas</h2>
+                <p class="text-md text-gray-500 max-w-2xl mx-auto mt-2">Basado en el análisis, se recomienda un enfoque por fases para capitalizar la oportunidad, mitigando los riesgos inherentes a la región.</p>
+            </div>
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="md:col-span-2">
+                        <h3 class="text-2xl font-bold mb-4">Ruta de Inversión Sugerida</h3>
+                        <p class="mb-6 text-gray-600">Se recomienda aprobar un caso de negocio detallado, priorizando los segmentos de salud y hotelería de alta gama donde la tecnología justifica un mayor valor. La expansión debe ser gradual, comenzando en mercados maduros para validar el modelo antes de escalar.</p>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-[#E07A5F] text-white rounded-full h-8 w-8 flex items-center justify-center font-bold">1</div>
+                                <div class="ml-4">
+                                    <h4 class="font-bold">Fase 1 (Años 1-2): Mercados Ancla</h4>
+                                    <p class="text-gray-600">Centrarse en Brasil y México. Realizar proyectos piloto con clientes clave para establecer pruebas de concepto y localizar el modelo operativo.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-[#81B29A] text-white rounded-full h-8 w-8 flex items-center justify-center font-bold">2</div>
+                                <div class="ml-4">
+                                    <h4 class="font-bold">Fase 2 (Años 3-5): Expansión Regional</h4>
+                                    <p class="text-gray-600">Expandirse a mercados como Colombia y Argentina, aprovechando los aprendizajes y el ROI demostrado en la fase inicial.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                         <h3 class="text-2xl font-bold mb-4">Foco Argentina</h3>
+                         <p class="text-gray-600 mb-4">El mercado argentino presenta un dilema único de "empuje y tracción":</p>
+                         <ul class="space-y-3">
+                             <li class="flex items-start"><span class="text-green-500 mr-2 font-bold text-xl">▲</span> <div><span class="font-bold">Empuje:</span> Altos costos laborales incentivan fuertemente la automatización.</div></li>
+                             <li class="flex items-start"><span class="text-red-500 mr-2 font-bold text-xl">▼</span> <div><span class="font-bold">Tracción:</span> Barreras de importación y volatilidad económica actúan como freno.</div></li>
+                         </ul>
+                         <p class="text-gray-600 mt-4 text-sm font-bold">Conclusión: La inversión es viable, pero requiere un enfoque por fases y un socio local fuerte.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center p-6 mt-8 border-t border-gray-200">
+        <p class="text-gray-500 text-sm">Análisis interactivo basado en el informe "La Revolución Silenciosa".</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const CHART_COLORS = {
+                primary: '#E07A5F',
+                secondary: '#81B29A',
+                tertiary: '#F2CC8F',
+                quaternary: '#3D405B',
+                quinary: '#6b7280'
+            };
+            const GRID_COLOR = 'rgba(0, 0, 0, 0.05)';
+            const FONT_COLOR = '#3D405B';
+
+            function wrapLabel(label, maxWidth) {
+                if (label.length <= maxWidth) {
+                    return label;
+                }
+                const words = label.split(' ');
+                let lines = [];
+                let currentLine = words[0];
+                for (let i = 1; i < words.length; i++) {
+                    if ((currentLine + ' ' + words[i]).length > maxWidth) {
+                        lines.push(currentLine);
+                        currentLine = words[i];
+                    } else {
+                        currentLine += ' ' + words[i];
+                    }
+                }
+                lines.push(currentLine);
+                return lines;
+            }
+
+            const tooltipTitleCallback = (tooltipItems) => {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                return Array.isArray(label) ? label.join(' ') : label;
+            };
+
+            const defaultChartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: FONT_COLOR,
+                            font: { size: 12, family: 'Lato' }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: { title: tooltipTitleCallback },
+                        backgroundColor: '#ffffff',
+                        titleColor: '#3D405B',
+                        bodyColor: '#3D405B',
+                        borderColor: '#dddddd',
+                        borderWidth: 1
+                    }
+                },
+                scales: {
+                    y: {
+                        ticks: { color: FONT_COLOR },
+                        grid: { color: GRID_COLOR }
+                    },
+                    x: {
+                        ticks: { color: FONT_COLOR },
+                        grid: { color: GRID_COLOR }
+                    }
+                }
+            };
+
+            const marketGrowthData = {
+                labels: ['2025', '2026', '2027', '2028', '2029', '2030', '2031', '2032', '2033', '2034'],
+                datasets: [{
+                    label: 'Tamaño del Mercado (Millones de USD)',
+                    data: [250, 268, 286, 306, 328, 351, 375, 402, 430, 460],
+                    borderColor: CHART_COLORS.primary,
+                    backgroundColor: CHART_COLORS.primary + '33',
+                    fill: true,
+                    tension: 0.4
+                }]
+            };
+            const marketGrowthCtx = document.getElementById('marketGrowthChart')?.getContext('2d');
+            if (marketGrowthCtx) {
+                new Chart(marketGrowthCtx, {
+                    type: 'line',
+                    data: marketGrowthData,
+                    options: {
+                        ...defaultChartOptions,
+                        plugins: { ...defaultChartOptions.plugins, legend: { display: false } }
+                    }
+                });
+            }
+
+            const adoptionCurveData = {
+                labels: [
+                    wrapLabel('Innovadores (2.5%)', 16), 
+                    wrapLabel('Primeros Adoptantes (13.5%)', 16), 
+                    wrapLabel('Mayoría Temprana (34%)', 16), 
+                    wrapLabel('Mayoría Tardía (34%)', 16), 
+                    wrapLabel('Rezagados (16%)', 16)
+                ],
+                datasets: [{
+                    label: 'Segmento de Mercado',
+                    data: [2.5, 13.5, 34, 34, 16],
+                    backgroundColor: [
+                        CHART_COLORS.quaternary,
+                        CHART_COLORS.primary,
+                        CHART_COLORS.secondary,
+                        CHART_COLORS.tertiary,
+                        CHART_COLORS.quinary,
+                    ],
+                    borderColor: '#F8F7F4',
+                    borderWidth: 4,
+                    hoverOffset: 8
+                }]
+            };
+            const adoptionCurveCtx = document.getElementById('adoptionCurveChart')?.getContext('2d');
+            if (adoptionCurveCtx) {
+                new Chart(adoptionCurveCtx, {
+                    type: 'doughnut',
+                    data: adoptionCurveData,
+                    options: {
+                        ...defaultChartOptions,
+                        plugins: { ...defaultChartOptions.plugins, legend: { position: 'bottom' } },
+                        scales: {}
+                    }
+                });
+            }
+
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.toggle('active', link.getAttribute('href').substring(1) === entry.target.id);
+                        });
+                    }
+                });
+            }, { rootMargin: '-50% 0px -50% 0px' });
+            sections.forEach(sec => observer.observe(sec));
+        });
+    </script>
+</body>
+</html>
