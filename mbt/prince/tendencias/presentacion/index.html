@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caso con Gráficos: El Resurgimiento de The Guardian</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Se añade la librería Chart.js para los gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .section-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        /* Estilo para asegurar que los gráficos sean responsivos */
+        .chart-container {
+            position: relative;
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Encabezado Principal -->
+    <header class="bg-slate-900 text-white text-center py-20 px-6 shadow-lg">
+        <h1 class="text-5xl font-black tracking-tight mb-4">Caso de Estudio: The Guardian</h1>
+        <p class="text-xl max-w-3xl mx-auto text-slate-300">La historia de una transformación exitosa: de las pérdidas a la rentabilidad a través de la innovación y la conexión con la audiencia.</p>
+    </header>
+
+    <!-- Barra de Navegación Fija -->
+    <nav class="sticky top-0 bg-white/80 backdrop-blur-md shadow-md z-50">
+        <div class="container mx-auto px-6">
+            <ul class="flex justify-center items-center space-x-2 sm:space-x-6 py-3 text-sm sm:text-base">
+                <li><a href="#parte1" class="font-bold text-slate-700 hover:text-red-600 transition-colors duration-300 py-2">1. Crisis</a></li>
+                <li><a href="#parte2" class="font-bold text-slate-700 hover:text-red-600 transition-colors duration-300 py-2">2. El Plan</a></li>
+                <li><a href="#parte3" class="font-bold text-slate-700 hover:text-red-600 transition-colors duration-300 py-2">3. Costos</a></li>
+                <li><a href="#parte4" class="font-bold text-slate-700 hover:text-red-600 transition-colors duration-300 py-2">4. Ingresos</a></li>
+                <li><a href="#parte5" class="font-bold text-slate-700 hover:text-red-600 transition-colors duration-300 py-2">5. Futuro</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <main class="container mx-auto p-6 mt-8">
+
+        <!-- Parte 1: El Contexto y la Crisis -->
+        <section id="parte1" class="mb-16">
+            <div class="section-card bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="p-8 sm:p-12">
+                    <h2 class="text-3xl font-bold text-slate-900 mb-2">Parte 1: El Contexto y la Crisis</h2>
+                    <p class="text-lg text-gray-600 mb-8">Establecer el escenario: por qué The Guardian necesitaba un cambio drástico.</p>
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-start">
+                            <span class="text-red-600 font-bold text-2xl mr-4">✓</span>
+                            <div><strong class="text-slate-800">Identidad y Misión:</strong> Un periódico propiedad del Scott Trust, con el objetivo de asegurar la independencia editorial, libre de interferencias comerciales.</div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-600 font-bold text-2xl mr-4">✓</span>
+                            <div><strong class="text-slate-800">Prestigio vs. Finanzas:</strong> A pesar de ganar premios como el Pulitzer, no reportaba ganancias desde 1998.</div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-600 font-bold text-2xl mr-4">✓</span>
+                            <div><strong class="text-slate-800">Crisis Financiera Grave:</strong> En el año fiscal 2015-16, la pérdida neta fue de <strong class="text-red-700">$234.39 millones</strong>.</div>
+                        </li>
+                         <li class="flex items-start">
+                            <span class="text-red-600 font-bold text-2xl mr-4">✓</span>
+                            <div><strong class="text-slate-800">Crisis de la Industria:</strong> Fuerte caída de la publicidad impresa y dominio de Google y Facebook en el ámbito digital.</div>
+                        </li>
+                    </ul>
+                    <h3 class="text-2xl font-bold text-slate-800 mt-12 mb-4 text-center">La Crisis Financiera en Números (2012-2019)</h3>
+                    <div class="chart-container">
+                        <canvas id="financialTurnaroundChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Parte 2: El Liderazgo y el Plan de Rescate -->
+        <section id="parte2" class="mb-16">
+             <div class="section-card bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="p-8 sm:p-12">
+                    <h2 class="text-3xl font-bold text-slate-900 mb-2">Parte 2: El Liderazgo y el Plan de Rescate</h2>
+                    <p class="text-lg text-gray-600 mb-8">Introducir a los nuevos líderes y el plan estratégico que pusieron en marcha.</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="text-red-600 font-bold text-2xl mr-4">✓</span>
+                            <div><strong class="text-slate-800">Nuevos Líderes (2015):</strong> Katharine Viner (Editora en Jefe) y David Pemsel (CEO) asumen el mando.</div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-600 font-bold text-2xl mr-4">✓</span>
+                            <div><strong class="text-slate-800">El Plan de Tres Años (2016):</strong> Objetivo claro: alcanzar el punto de equilibrio para el año fiscal 2018-19.</div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-600 font-bold text-2xl mr-4">✓</span>
+                            <div><strong class="text-slate-800">Dos Pilares Estratégicos:</strong> 1) Reducir costos en al menos un 20% y 2) Impulsar nuevos ingresos basados en contribuciones de lectores.</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Parte 3: Pilar 1 - La Drástica Reducción de Costos -->
+        <section id="parte3" class="mb-16">
+            <div class="section-card bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="p-8 sm:p-12">
+                    <h2 class="text-3xl font-bold text-slate-900 mb-2">Parte 3: Pilar 1 - La Reducción de Costos</h2>
+                    <p class="text-lg text-gray-600 mb-8">Detallar las acciones concretas para reducir los gastos operativos.</p>
+                     <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="text-red-600 font-bold text-2xl mr-4">✓</span>
+                            <div><strong class="text-slate-800">Cambio de Formato:</strong> Se abandonó el costoso formato "Berliner" por el "tabloide", un estándar global más económico.</div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-600 font-bold text-2xl mr-4">✓</span>
+                            <div><strong class="text-slate-800">Outsourcing de Impresión:</strong> Se cerraron las imprentas propias, externalizando la producción para un ahorro significativo.</div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-600 font-bold text-2xl mr-4">✓</span>
+                            <div><strong class="text-slate-800">Reducción de Personal:</strong> 450 empleados dejaron la empresa, 120 de ellos del equipo editorial.</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Parte 4: Pilar 2 - El Innovador Modelo de Contribución -->
+        <section id="parte4" class="mb-16">
+            <div class="section-card bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="p-8 sm:p-12">
+                    <h2 class="text-3xl font-bold text-slate-900 mb-2">Parte 4: Pilar 2 - El Modelo de Contribución</h2>
+                    <p class="text-lg text-gray-600 mb-8">Explicar el cambio más importante: el nuevo modelo de ingresos y la estrategia de expansión.</p>
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-start">
+                            <span class="text-red-600 font-bold text-2xl mr-4">✓</span>
+                            <div><strong class="text-slate-800">Rechazo del "Paywall":</strong> En lugar de bloquear contenido, se optó por un "tercer camino": contribuciones voluntarias.</div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-600 font-bold text-2xl mr-4">✓</span>
+                            <div><strong class="text-slate-800">La Petición al Lector:</strong> Mensajes pidiendo apoyo financiero para mantener la independencia y calidad, manteniendo el acceso abierto.</div>
+                        </li>
+                         <li class="flex items-start">
+                            <span class="text-red-600 font-bold text-2xl mr-4">✓</span>
+                            <div><strong class="text-slate-800">Inspiración en Wikipedia:</strong> Aprender de la comunidad de usuarios para fomentar el apoyo financiero, con la ayuda de Jimmy Wales en la junta.</div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-600 font-bold text-2xl mr-4">✓</span>
+                            <div><strong class="text-slate-800">Ruta sin Fines de Lucro en EE.UU.:</strong> Lanzamiento de ⁠ theguardian.org ⁠ para recaudar fondos de fundaciones y donantes para proyectos específicos.</div>
+                        </li>
+                    </ul>
+                    <h3 class="text-2xl font-bold text-slate-800 mt-12 mb-4 text-center">Impacto en la Audiencia (2014-2019)</h3>
+                    <div class="chart-container">
+                        <canvas id="reachChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Parte 5: Resultados, Logros y Desafíos Futuros -->
+        <section id="parte5" class="mb-16">
+            <div class="section-card bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="p-8 sm:p-12">
+                    <h2 class="text-3xl font-bold text-slate-900 mb-2">Parte 5: Resultados y Desafíos Futuros</h2>
+                    <p class="text-lg text-gray-600 mb-8">Mostrar los resultados de la transformación y plantear las preguntas clave para el futuro.</p>
+                     <ul class="space-y-4 mb-10">
+                        <li class="flex items-start">
+                            <span class="text-green-600 font-bold text-2xl mr-4">✓</span>
+                            <div><strong class="text-slate-800">Éxito Financiero:</strong> En 2018-19, se logró una ganancia neta de <strong class="text-green-700">$39.78 millones</strong>, el primer beneficio operativo desde 1998.</div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-600 font-bold text-2xl mr-4">✓</span>
+                            <div><strong class="text-slate-800">Dominio Digital:</strong> En 2018, los ingresos digitales (55% del total) superaron por primera vez a los impresos.</div>
+                        </li>
+                         <li class="flex items-start">
+                            <span class="text-green-600 font-bold text-2xl mr-4">✓</span>
+                            <div><strong class="text-slate-800">Crecimiento de la Base de Apoyo:</strong> Se recibió 1 millón de donaciones pagadas para abril de 2019, y los suscriptores mensuales crecieron a 655,000.</div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-600 font-bold text-2xl mr-4">?</span>
+                            <div><strong class="text-slate-800">Desafíos Futuros:</strong> Sostenibilidad, alcanzar 2 millones de contribuyentes para 2022 y decidir si expandir el modelo sin fines de lucro a nivel global.</div>
+                        </li>
+                    </ul>
+                    <h3 class="text-2xl font-bold text-slate-800 mt-12 mb-4 text-center">Posición Final en el Mercado (RU, 2018-19)</h3>
+                     <div class="chart-container">
+                        <canvas id="competitorChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Pie de Página -->
+    <footer class="text-center py-8 bg-slate-900 text-slate-400 mt-12">
+        <p>Presentación del caso de estudio: The Guardian.</p>
+        <p class="text-sm">Basado en el documento "Contributor Funding and the Turnaround of The Guardian" (W20609).</p>
+    </footer>
+
+    <script>
+    // Este script se ejecuta cuando el contenido de la página se ha cargado
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // --- Gráfico 1: Vuelco Financiero (en Parte 1) ---
+        const financialCtx = document.getElementById('financialTurnaroundChart').getContext('2d');
+        new Chart(financialCtx, {
+            type: 'bar',
+            data: {
+                labels: ['2011-12', '2012-13', '2013-14', '2014-15', '2015-16', '2016-17', '2017-18', '2018-19'],
+                datasets: [
+                    {
+                        type: 'line', label: 'Beneficio Neto (Millones USD)',
+                        data: [-25.87, -10.79, -35.75, -13.26, -234.39, 24.57, -32.24, 39.78],
+                        borderColor: '#c70000', backgroundColor: '#c70000', yAxisID: 'y1', tension: 0.1
+                    },
+                    {
+                        type: 'bar', label: 'Ingresos Totales (Millones USD)',
+                        data: [252.72, 252.85, 271.70, 282.75, 272.35, 278.85, 282.10, 291.85],
+                        backgroundColor: 'rgba(12, 31, 75, 0.5)', borderColor: '#0c1f4b', borderWidth: 1, yAxisID: 'y',
+                    },
+                     {
+                        type: 'bar', label: 'Ingresos Digitales (Millones USD)',
+                        data: [56.42, 70.33, 88.79, 108.94, 106.47, 122.33, 141.18, 162.89],
+                        backgroundColor: 'rgba(54, 162, 235, 0.5)', borderColor: '#36a2eb', borderWidth: 1, yAxisID: 'y',
+                    },
+                ]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                scales: {
+                    y: { type: 'linear', display: true, position: 'left', title: { display: true, text: 'Ingresos (Millones USD)' } },
+                    y1: { type: 'linear', display: true, position: 'right', title: { display: true, text: 'Beneficio/Pérdida (Millones USD)' }, grid: { drawOnChartArea: false } }
+                },
+                plugins: { tooltip: { mode: 'index', intersect: false } }
+            }
+        });
+        
+        // --- Gráfico 2: Crecimiento de la Audiencia (en Parte 4) ---
+        const reachCtx = document.getElementById('reachChart').getContext('2d');
+        new Chart(reachCtx, {
+            type: 'line',
+            data: {
+                labels: ['Mar-15', 'Jun-15', 'Sep-15', 'Dic-15', 'Mar-16', 'Jun-16', 'Sep-16', 'Dic-16', 'Mar-17', 'Sep-17', 'Jun-18', 'Sep-18', 'Dic-18', 'Mar-19', 'Jun-19'],
+                datasets: [{
+                    label: 'Alcance Mensual (en miles)',
+                    data: [12067, 11282, 11174, 11177, 10698, 11363, 9593, 10278, 10278, 9636, 24425, 23335, 25084, 24816, 23810],
+                    borderColor: '#0c1f4b', backgroundColor: 'rgba(12, 31, 75, 0.1)', fill: true, tension: 0.2
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { display: false }, title: { display: true, text: 'Alcance combinado (impreso + digital) en el Reino Unido' } },
+                scales: { y: { beginAtZero: false, title: { display: true, text: 'Alcance (en miles)' } } }
+            }
+        });
+
+        // --- Gráfico 3: Comparativa de Competidores (en Parte 5) ---
+        const competitorCtx = document.getElementById('competitorChart').getContext('2d');
+        new Chart(competitorCtx, {
+            type: 'bar',
+            data: {
+                labels: ['The Sun', 'Daily Mirror', 'Daily Mail', 'Metro', 'The Guardian', 'Daily Express', 'The Daily Telegraph'],
+                datasets: [{
+                    label: 'Alcance Mensual (en miles)',
+                    data: [33918, 27760, 26530, 25188, 24042, 21689, 20873],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)',
+                        '#0c1f4b', // Color de The Guardian
+                        'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)',
+                        '#000000',
+                        'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { display: false }, title: { display: true, text: 'Alcance de periódicos líderes en el Reino Unido (miles)' } },
+                scales: { y: { beginAtZero: true } }
+            }
+        });
+    });
+    </script>
+</body>
+</html>
